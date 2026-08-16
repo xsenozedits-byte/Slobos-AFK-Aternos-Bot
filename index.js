@@ -1,3 +1,33 @@
+const dns = require("dns");
+const net = require("net");
+
+dns.lookup("TheEuropeServer.aternos.me", (err, address, family) => {
+  if (err) {
+    console.log("[TEST] DNS ERROR:", err);
+    return;
+  }
+
+  console.log(`[TEST] DNS: ${address} IPv${family}`);
+
+  const socket = new net.Socket();
+  socket.setTimeout(10000);
+
+  socket.on("connect", () => {
+    console.log("[TEST] TCP CONNECTION: SUCCESS");
+    socket.destroy();
+  });
+
+  socket.on("timeout", () => {
+    console.log("[TEST] TCP CONNECTION: TIMEOUT");
+    socket.destroy();
+  });
+
+  socket.on("error", (err) => {
+    console.log("[TEST] TCP CONNECTION ERROR:", err.code, err.message);
+  });
+
+  socket.connect(16914, "TheEuropeServer.aternos.me");
+});
 "use strict";
 
 const { addLog, getLogs } = require("./logger");
