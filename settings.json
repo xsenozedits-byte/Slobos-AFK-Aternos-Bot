@@ -8,7 +8,7 @@
   "server": {
     "ip": "TheEuropeServer.aternos.me",
     "port": 16914,
-    "version": "",
+    "version": "1.21.9",
     "try-creative": false
   },
   "position": {
