@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "IP: TheEuropeServer.aternos.me",
+    "ip": "TheEuropeServer.aternos.me",
     "port": 16914,
     "version": "",
     "try-creative": false
